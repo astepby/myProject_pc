@@ -1,4 +1,4 @@
-package test;
+package controller;
 
 import java.sql.ResultSet;
 
@@ -7,7 +7,7 @@ import com.mysql.jdbc.PreparedStatement;
 
 import assets.DBConnectionMgr;
 
-public class LoginTest {
+public class LoginService {
 	public static void main(String[] args) {
 		
 		boolean test = loginTest("test", "1234");

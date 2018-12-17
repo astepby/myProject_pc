@@ -2,6 +2,8 @@ package view;
 
 import java.awt.*;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,15 +13,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import controller.LoginService;
 import sun.misc.PerformanceLogger;
 
 
 
-public class LoginFrame extends JFrame{
+public class LoginFrame extends JFrame implements ActionListener{
 	private BufferedImage img = null;
 	JTextField loginTextField;
 	JPasswordField passwordField;
@@ -93,6 +97,28 @@ public class LoginFrame extends JFrame{
 		public void paint(Graphics g) {
 			g.drawImage(img,0,0,null);
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String id = loginTextField.getText();
+		char[] pass = passwordField.getPassword();
+		String password = new String(pass);
+		if(id.equals("") || password.equals("")) {
+			//send msg
+			JOptionPane.showMessageDialog(null, "빈칸");
+		}else {
+			//login t or f
+			boolean existLogin = LoginService.loginTest(id, password);
+			if(existLogin) {
+				//로그인 성공
+			}else {
+				//로그인 실패				
+			}
+			
+		}
+		
 	}
 
 }
