@@ -20,17 +20,12 @@ public class ServerBackground {
 			// TODO: handle exception
 			e.printStackTrace();
 			
-			
 		}
-		
 		
 	}
 	
-	
 	public static void main(String[] args) {
-		
 		ServerBackground serverBackground = new ServerBackground();
 		serverBackground.setting();
-				
 	}
 }

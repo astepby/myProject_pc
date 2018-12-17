@@ -13,7 +13,9 @@ public class ClientBackground {
 			// TODO: handle exception
 		}
 		
-		
-		
+	}
+	public static void main(String[] args) {
+		ClientBackground clientBackground = new ClientBackground();
+		clientBackground.connect();
 	}
 }
