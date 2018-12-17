@@ -7,12 +7,19 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ServerBackground {
-	ServerSocket serverSocket;
-	Socket socket;
+	private ServerSocket serverSocket;
+	private Socket socket;
+	private DataInputStream in;
+	private DataOutputStream out;
 	
-	DataInputStream in;
-	DataOutputStream out;
+	private ServerGui serverGui;
 	
+	
+	
+	public void setGui(ServerGui gui) {
+		this.serverGui = serverGui;
+	}
+
 	public void setting() {
 		try {
 			serverSocket = new ServerSocket(7777);
@@ -24,7 +31,11 @@ public class ServerBackground {
 			in = new DataInputStream(socket.getInputStream());
 			
 			String msg = in.readUTF();
-			System.out.println("[Client]"+msg);
+			System.out.println("[Client] "+msg);
+			serverGui.hello();
+			serverGui.appendMsg(msg);
+			
+			
 			
 			
 		} catch (IOException e) {

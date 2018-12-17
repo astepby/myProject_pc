@@ -10,9 +10,15 @@ import java.net.Socket;
 public class ClientBackground {
 	Socket socket;
 	
-	DataInputStream in;
-	DataOutputStream out;
+	private DataInputStream in;
+	private DataOutputStream out;
+	private ClientGui clientGui;
 	
+	
+	
+	public void setGui(ClientGui clientGui) {
+		this.clientGui = clientGui;
+	}
 	public void connect() {
 		try {
 			socket = new Socket("127.0.0.1", 7777);

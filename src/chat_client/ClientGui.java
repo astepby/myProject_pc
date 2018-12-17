@@ -1,4 +1,4 @@
-package chat_server;
+package chat_client;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -8,14 +8,12 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class ServerGui extends JFrame implements ActionListener{
+public class ClientGui extends JFrame implements ActionListener{
 	private JTextArea jta = new JTextArea(40,25);
 	private JTextField jtf = new JTextField(25);
+	private ClientBackground clientBackground = new ClientBackground(); 
 	
-	//연동
-	private ServerBackground serverBackground = new ServerBackground();
-	
-	public ServerGui() {
+	public ClientGui() {
 		
 		add(jta,BorderLayout.CENTER);
 		add(jtf,BorderLayout.SOUTH);
@@ -24,13 +22,14 @@ public class ServerGui extends JFrame implements ActionListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);  
 		setVisible(true);
 		setBounds(200,100,400,600);
-		setTitle("Server Side");
-		serverBackground.setting();
-		serverBackground.setGui(this);
+		setTitle("Client Side");
+		
+		clientBackground.setGui(this);
+		clientBackground.connect();
 	}
 	
 	public static void main(String[] args) {
-		new ServerGui();
+		new ClientGui();
 	}
 
 	@Override
@@ -41,17 +40,5 @@ public class ServerGui extends JFrame implements ActionListener{
 		System.out.print(msg);
 		jtf.setText("");
 		
-	}
-	
-	public void appendMsg(String msg) {
-		// TODO Auto-generated method stub
-		System.out.print("appendMsg");
-		jta.append(msg);
-		System.out.print("[From Client] "+msg);
-		
-
-	}
-	public void hello() {
-		System.out.println("hello serverGui");
 	}
 }
