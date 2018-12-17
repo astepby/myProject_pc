@@ -21,7 +21,7 @@ public class ClientGui extends JFrame implements ActionListener{
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);  
 		setVisible(true);
-		setBounds(200,100,400,600);
+		setBounds(400,100,400,600);
 		setTitle("Client Side");
 		
 		clientBackground.setGui(this);

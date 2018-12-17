@@ -16,7 +16,7 @@ public class ServerBackground {
 	
 	
 	
-	public void setGui(ServerGui gui) {
+	public final void setGui(ServerGui serverGui) {
 		this.serverGui = serverGui;
 	}
 

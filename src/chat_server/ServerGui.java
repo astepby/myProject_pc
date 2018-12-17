@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -25,8 +26,11 @@ public class ServerGui extends JFrame implements ActionListener{
 		setVisible(true);
 		setBounds(200,100,400,600);
 		setTitle("Server Side");
-		serverBackground.setting();
 		serverBackground.setGui(this);
+		serverBackground.setting();
+		
+		
+		jta.append("[ServerGui is created.]");
 	}
 	
 	public static void main(String[] args) {
