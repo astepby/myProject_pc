@@ -81,6 +81,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 		bt.setBorderPainted(false);
 		bt.setFocusPainted(false);
 		bt.setContentAreaFilled(false);
+		bt.addActionListener(this);
 		layeredPane.add(bt);
 		
 		
@@ -105,6 +106,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 		String id = loginTextField.getText();
 		char[] pass = passwordField.getPassword();
 		String password = new String(pass);
+		
 		if(id.equals("") || password.equals("")) {
 			//send msg
 			JOptionPane.showMessageDialog(null, "빈칸");
@@ -113,8 +115,10 @@ public class LoginFrame extends JFrame implements ActionListener{
 			boolean existLogin = LoginService.loginTest(id, password);
 			if(existLogin) {
 				//로그인 성공
+				JOptionPane.showMessageDialog(null, "로그인 성공");
 			}else {
-				//로그인 실패				
+				//로그인 실패
+				JOptionPane.showMessageDialog(null, "로그인 실패");
 			}
 			
 		}
