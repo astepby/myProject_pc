@@ -7,8 +7,13 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 import sun.misc.PerformanceLogger;
 
@@ -16,6 +21,9 @@ import sun.misc.PerformanceLogger;
 
 public class LoginFrame extends JFrame{
 	private BufferedImage img = null;
+	JTextField loginTextField;
+	JPasswordField passwordField;
+	JButton bt;
 	//main
 	public static void main(String[] args) {
 		new LoginFrame();
@@ -37,18 +45,46 @@ public class LoginFrame extends JFrame{
 		}
 		
 		//layout
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBounds(0, 0, 1600, 900);
+		layeredPane.setLayout(null);
+		
 		
 		//panel1
 		MyPanel panel = new MyPanel();
 		panel.setBounds(0, 0, 1600, 900);
 		
 		
-		//login
+		//login field
+		loginTextField = new JTextField(15);
+		loginTextField.setBounds(731, 404, 200, 30);
+		loginTextField.setOpaque(false);
+		loginTextField.setForeground(Color.green);
+		loginTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		layeredPane.add(loginTextField);
 		
-		//password
+		//password field
+		passwordField = new JPasswordField(200);
+		passwordField.setBounds(731, 528, 200, 30);
+		passwordField.setOpaque(false);
+		passwordField.setForeground(Color.green);
+		passwordField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		layeredPane.add(passwordField);
+		
+		//login btn
+		bt = new JButton(new ImageIcon("img/btLogin_hud.png"));
+		bt.setBounds(755,689,104,48);
+		bt.setBorderPainted(false);
+		bt.setFocusPainted(false);
+		bt.setContentAreaFilled(false);
+		layeredPane.add(bt);
+		
 		
 		//etc
-		add(panel);  //add(panel,BorderLayout.NORTH);
+		//add(panel);  //add(panel,BorderLayout.NORTH);
+		layeredPane.add(panel);
+		add(layeredPane);
+		
 		setVisible(true);
 		
 	}
