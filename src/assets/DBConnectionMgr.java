@@ -44,7 +44,8 @@ public class DBConnectionMgr {
     
     
     //_url = "jdbc:mysql://192.168.0.254:3306/pc?useUnicode=true&characterEncoding=utf-8",
-	_url = "jdbc:mysql://192.168.0.254:3306/pc?useUnicode=true&characterEncoding=EUC_KR",
+	//_url = "jdbc:mysql://192.168.0.254:3306/pc?useUnicode=true&characterEncoding=EUC_KR",
+	_url = "jdbc:mysql://rupa.myqnapcloud.com:3306/pc?useUnicode=true&characterEncoding=EUC_KR",
     _user = "user03",
     _password = "333";
 
