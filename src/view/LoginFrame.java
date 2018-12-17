@@ -10,10 +10,12 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import sun.misc.PerformanceLogger;
+
 
 
 public class LoginFrame extends JFrame{
-	BufferedImage img = null;
+	private BufferedImage img = null;
 	//main
 	public static void main(String[] args) {
 		new LoginFrame();
@@ -40,18 +42,19 @@ public class LoginFrame extends JFrame{
 		MyPanel panel = new MyPanel();
 		panel.setBounds(0, 0, 1600, 900);
 		
+		
 		//login
 		
 		//password
 		
 		//etc
-		add(panel,BorderLayout.NORTH);
+		add(panel);  //add(panel,BorderLayout.NORTH);
 		setVisible(true);
 		
 	}
 	
 	class MyPanel extends JPanel{
-		public void paint(Graphics2D g) {
+		public void paint(Graphics g) {
 			g.drawImage(img,0,0,null);
 		}
 	}
